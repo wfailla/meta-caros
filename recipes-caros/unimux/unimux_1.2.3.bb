@@ -11,14 +11,14 @@ APPNAME = "${PN}"
 APPVERSION = "${PV}"
 
 REL_NAME = "${APPNAME}"
-REL_VSN = "0.2.2"
+REL_VSN = "0.2.3"
 
 APP_PREFIX = "/usr/caros-apps"
 SYSCONFIG_PREFIX = "${sysconfdir}"
 
 SRC_URI = "git://github.com/carosio/unimux.git;protocol=git"
 
-SRCREV = "b466fe885b149c0ec4c8b62ebc539971407d9dd3"
+SRCREV = "368e47dcc52ce02b65228a42679d6dea40b2ff24"
 
 S = "${WORKDIR}/git"
 
