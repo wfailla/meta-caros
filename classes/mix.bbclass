@@ -195,7 +195,7 @@ do_install() {
     sed -i "s|@@DESCRIPTION@@|${DESCRIPTION}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
     sed -i "s|@@VERSION@@|${APPVERSION}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
     sed -i "s|@@APPNAME@@|${APPNAME}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
-    sed -i "s|@@APP_HOME@@|${APP_HOME}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
+    sed -i "s|@@APP_PREFIX@@|${APP_PREFIX}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}@.service
     sed -i "s|@@APP_CONTROLE@@|${APP_CONTROLE}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
 }
 
