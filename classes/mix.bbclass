@@ -45,7 +45,7 @@ RDEPENDS_${PN} += " app-mgmt "
 
 inherit systemd
 
-SYSTEMD_UNIT_NAME ?= "${APPNAME}@${APPVERSION}:default"
+SYSTEMD_UNIT_NAME ?= "${APPNAME}@"
 SYSTEMD_AUTO_ENABLE ?= "disable"
 APP_CONTROLE ?= "/usr/caros-apps/libexec/appctl.sh"
 SYSTEMD_SERVICE_${PN} = "${SYSTEMD_UNIT_NAME}.service"
