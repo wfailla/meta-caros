@@ -194,7 +194,7 @@ do_install() {
     install -m 0644 ${MIX_CLASS_FILES}/app-template.service ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
     sed -i "s|@@DESCRIPTION@@|${DESCRIPTION}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
     sed -i "s|@@APPNAME@@|${APPNAME}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
-    sed -i "s|@@APP_PREFIX@@|${APP_PREFIX}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}@.service
+    sed -i "s|@@APP_PREFIX@@|${APP_PREFIX}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
     sed -i "s|@@APP_CONTROL@@|${APP_CONTROL}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
 }
 
