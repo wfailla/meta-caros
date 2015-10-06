@@ -11,7 +11,8 @@
 # SYSCONFIG_PREFIX    (default is "${sysconfdir}/apps")
 # SYSTEMD_UNIT_NAME   (default is "${APPNAME}")
 # SYSTEMD_AUTO_ENABLE (default is "disable")
-# APP_CONTROL        (default is "/usr/caros-apps/libexec/appctl.sh")
+# APP_CONTROL         (default is "/usr/caros-apps/libexec/appctl.sh")
+# CONFFILE            (default is "${SYSCONFIG_PREFIX}/${APPNAME}.conf")
 #####################################################
 
 APPNAME ?= "${PN}"
@@ -34,7 +35,8 @@ FILES_${PN}-dbg += "${APP_PREFIX}/${APPNAME}/${APPVERSION}/erts*/bin/.debug"
 FILES_${PN}-staticdev += "${APP_PREFIX}/${APPNAME}/${APPVERSION}/erts*/lib/lib*.a"
 FILES_${PN}-staticdev += "${APP_PREFIX}/${APPNAME}/${APPVERSION}/erts*/lib/internal/lib*.a"
 
-CONFFILES_${PN} += "${SYSCONFIG_PREFIX}/${APPNAME}.conf"
+CONFFILE ?= "${SYSCONFIG_PREFIX}/${APPNAME}.conf"
+CONFFILES_${PN} += "${CONFFILE}"
 
 DEPENDS += " avahi \
     erlang-lager-journald-backend \
@@ -196,6 +198,7 @@ do_install() {
     sed -i "s|@@APPNAME@@|${APPNAME}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
     sed -i "s|@@APP_PREFIX@@|${APP_PREFIX}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
     sed -i "s|@@APP_CONTROL@@|${APP_CONTROL}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
+    sed -i "s|@@CONFFILE@@|${CONFFILE}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
 }
 
 python do_mix_deps() {
