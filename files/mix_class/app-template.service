@@ -2,8 +2,8 @@
 Description=@@DESCRIPTION@@
 
 [Service]
-ExecStart=@@APP_CONTROLE@@ --from-systemd=%p@%i start @@APP_PREFIX@@/@@APPNAME@@
-ExecStop=@@APP_CONTROLE@@ --from-systemd=%p@%i stop
+ExecStart=@@APP_CONTROL@@ --from-systemd=%p@%i start @@APP_PREFIX@@/@@APPNAME@@
+ExecStop=@@APP_CONTROL@@ --from-systemd=%p@%i stop
 Restart=always
 
 [Install]

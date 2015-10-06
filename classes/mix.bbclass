@@ -11,7 +11,7 @@
 # SYSCONFIG_PREFIX    (default is "${sysconfdir}/apps")
 # SYSTEMD_UNIT_NAME   (default is "${APPNAME}")
 # SYSTEMD_AUTO_ENABLE (default is "disable")
-# APP_CONTROLE        (default is "/usr/caros-apps/libexec/appctl.sh")
+# APP_CONTROL        (default is "/usr/caros-apps/libexec/appctl.sh")
 #####################################################
 
 APPNAME ?= "${PN}"
@@ -47,7 +47,7 @@ inherit systemd
 
 SYSTEMD_UNIT_NAME ?= "${APPNAME}@"
 SYSTEMD_AUTO_ENABLE ?= "disable"
-APP_CONTROLE ?= "/usr/caros-apps/libexec/appctl.sh"
+APP_CONTROL ?= "/usr/caros-apps/libexec/appctl.sh"
 SYSTEMD_SERVICE_${PN} = "${SYSTEMD_UNIT_NAME}.service"
 
 def gen_deps(d):
@@ -193,10 +193,9 @@ do_install() {
     install -d ${D}${systemd_unitdir}/system/
     install -m 0644 ${MIX_CLASS_FILES}/app-template.service ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
     sed -i "s|@@DESCRIPTION@@|${DESCRIPTION}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
-    sed -i "s|@@VERSION@@|${APPVERSION}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
     sed -i "s|@@APPNAME@@|${APPNAME}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
     sed -i "s|@@APP_PREFIX@@|${APP_PREFIX}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}@.service
-    sed -i "s|@@APP_CONTROLE@@|${APP_CONTROLE}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
+    sed -i "s|@@APP_CONTROL@@|${APP_CONTROL}|" ${D}${systemd_unitdir}/system/${SYSTEMD_UNIT_NAME}.service
 }
 
 python do_mix_deps() {
