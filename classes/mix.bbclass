@@ -35,7 +35,7 @@ FILES_${PN}-dbg += "${APP_PREFIX}/${APPNAME}/${APPVERSION}/erts*/bin/.debug"
 FILES_${PN}-staticdev += "${APP_PREFIX}/${APPNAME}/${APPVERSION}/erts*/lib/lib*.a"
 FILES_${PN}-staticdev += "${APP_PREFIX}/${APPNAME}/${APPVERSION}/erts*/lib/internal/lib*.a"
 
-CONFFILE ?= "${SYSCONFIG_PREFIX}/${APPNAME}.conf"
+CONFFILE ?= "${SYSCONFIG_PREFIX}/${APPNAME}-${APPVERSION}.conf"
 CONFFILES_${PN} += "${CONFFILE}"
 
 DEPENDS += " avahi \
