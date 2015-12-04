@@ -5,10 +5,12 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=815ca599c9df247a0c7f619bab123dad"
 
 PR = "r1"
 
-inherit mix
+inherit mix caros-service
 
 APPNAME = "${PN}"
 APPVERSION = "${PV}"
+
+CAROS_APP_SERVICE_${PN} = "unimux.service"
 
 REL_NAME = "${APPNAME}"
 REL_VSN = "${APPVERSION}"
