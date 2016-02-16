@@ -17,3 +17,8 @@ do_install_append() {
 CONFFILES_${PN} += "${sysconfdir}/sysctl.d/20-arp-security.conf \
                     ${sysconfdir}/environ.d/50-locale \
                     "
+
+PACKAGES =+ "${PN}-volatiles"
+
+FILES_${PN}-volatiles += "/volatile \
+  /run"
