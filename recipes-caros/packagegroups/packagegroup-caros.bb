@@ -25,4 +25,5 @@ unzip \
 unbound nsd \
 kellner \
 influxdb \
+bridge-utils \
 "
