@@ -17,7 +17,7 @@ EXTRA_OECMAKE=""
 inherit pkgconfig cmake
 
 do_configure() {
-       cd ${S}/contrib
+       cd ${S}/../contrib
        unzip -o inih.zip
        cd inih
        cp * ../../orchestrator/node_resource_manager/database_manager/SQLite
