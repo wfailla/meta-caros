@@ -16,7 +16,7 @@ S = "${WORKDIR}/git/orchestrator"
 EXTRA_OECMAKE=""
 inherit pkgconfig cmake
 
-do_configure() {
+do_configure_prepend() {
        cd ${S}/../contrib
        unzip -o inih.zip
        cd inih
