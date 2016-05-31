@@ -11,7 +11,7 @@ SRC_URI = "git://github.com/netgroup-polito/un-orchestrator.git;branch=new_maste
 SRCREV = "409d9a4259404aeb149570fb176912664ddd4139"
 
 DEPENDS = "boost json-spirit libmicrohttpd libvirt openvswitch rofl-common libxml2 ethtool openssl sqlite3"
-RDEPENDS = "rofl-common json-sprit libsqlite3-0"
+RDEPENDS_${PN} = "rofl-common json-sprit libsqlite3-0"
 
 S = "${WORKDIR}/git/orchestrator"
 
@@ -23,4 +23,11 @@ do_configure_prepend() {
        unzip -o inih.zip
        cd inih
        cp * ../../orchestrator/node_resource_manager/database_manager/SQLite
+}
+
+do_install_append() {
+        install -d ${D}${bindir}
+        install -d ${D}${sysconfdir}/default/node-orchestrator
+        install -m 0755 ${WORKDIR}/build/node-orchestrator ${D}${bindir}/node-orchestrator
+        install -m 0644 ${S}/config/* ${D}${sysconfdir}/default/node-orchestrator
 }
