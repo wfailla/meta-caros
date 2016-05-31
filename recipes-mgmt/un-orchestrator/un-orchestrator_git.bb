@@ -11,7 +11,7 @@ SRC_URI = "git://github.com/netgroup-polito/un-orchestrator.git;branch=new_maste
 SRCREV = "409d9a4259404aeb149570fb176912664ddd4139"
 
 DEPENDS = "boost json-spirit libmicrohttpd libvirt openvswitch rofl-common libxml2 ethtool openssl sqlite3"
-RDEPENDS_${PN} = "rofl-common json-spirit libsqlite3"
+RDEPENDS_${PN} = "rofl-common json-spirit libsqlite3 openvswitch"
 
 S = "${WORKDIR}/git/orchestrator"
 
