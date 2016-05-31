@@ -6,7 +6,8 @@ LIC_FILES_CHKSUM = "file://../COPYRIGHT;md5=385b8aba0b3b88eaa7e5377eefa10f94"
 SECTION = "console/tools"
 
 SRC_URI = "git://github.com/netgroup-polito/un-orchestrator.git;branch=new_master \
-        file://fixcmake.patch"
+        file://fixcmake.patch \
+        file://fix_ISO_C90_warning.patch"
 SRCREV = "409d9a4259404aeb149570fb176912664ddd4139"
 
 DEPENDS = "boost json-spirit libmicrohttpd libvirt openvswitch rofl-common libxml2 ethtool openssl sqlite3"
