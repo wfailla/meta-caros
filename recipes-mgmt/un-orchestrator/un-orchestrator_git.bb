@@ -25,7 +25,7 @@ do_configure_prepend() {
        cp * ../../orchestrator/node_resource_manager/database_manager/SQLite
 }
 
-do_install_append() {
+do_install() {
         install -d ${D}${bindir}
         install -d ${D}${sysconfdir}/default/node-orchestrator
         install -m 0755 ${WORKDIR}/build/node-orchestrator ${D}${bindir}/node-orchestrator
