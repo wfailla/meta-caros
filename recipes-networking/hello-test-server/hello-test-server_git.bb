@@ -8,7 +8,7 @@ PR = "r1"
 
 inherit caros-app-mix
 
-SRC_URI = "git://git@github.com:travelping/hello_test_server.git"
+SRC_URI = "git://git@github.com/travelping/hello_test_server.git"
 SRCREV = "7c40d6e62ca3e420f2aebb5b844f9d120955d3bd"
 
 REL_NAME = "hello_test_server"
